@@ -2,6 +2,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import path from 'path';
+import mongoose from 'mongoose';
+import apiRouter from './router';
+
+// import * as apiRouter from './router';
 
 // initialize
 const app = express();
@@ -21,12 +25,15 @@ app.use(bodyParser.json());
 
 
 // default index route
-app.get('/', (req, res) => {
-  res.send('hi');
-});
+app.use('/api', apiRouter);
 
 // START THE SERVER
 // =============================================================================
+// DB Setup
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/posts';
+mongoose.connect(mongoURI);
+mongoose.Promise = global.Promise;
+
 const port = process.env.PORT || 9090;
 app.listen(port);
 
