@@ -1,9 +1,3 @@
-# starter express app template
+# Added Authentication to backend
 
-* node with babel
-* expressjs
-* airbnb eslint rules
-
-Procfile set up to run on [heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app)
-
-
+I tried doing the populate thing but ultimately did not understand it, so I just stored the req.user.username like a scrub. Other than that everything is unsuprising in here
