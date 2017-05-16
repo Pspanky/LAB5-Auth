@@ -16,6 +16,7 @@ export const signin = (req, res, next) => {
 export const signup = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
+  const username = req.body.username;
 
   // make sure email and password have been entered
   if (!email || !password) {
@@ -32,6 +33,9 @@ export const signup = (req, res, next) => {
         const newUser = new User();
         newUser.email = email;
         newUser.password = password;
+        newUser.username = username;
+
+        console.log(username);
 
         newUser.save().then((newuser) => {
           res.send({ token: tokenForUser(newuser) });

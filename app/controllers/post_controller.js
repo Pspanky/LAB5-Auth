@@ -7,7 +7,7 @@ export const createPost = (req, res) => {
   newpost.title = req.body.title;
   newpost.cover_url = req.body.cover_url;
   newpost.tags = req.body.tags;
-  newpost.author = req.user;
+  newpost.author = req.user.username;
 
   newpost.save().then((newPost) => {
     res.send(newPost).catch((error) => {
