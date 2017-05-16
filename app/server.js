@@ -23,10 +23,6 @@ app.set('views', path.join(__dirname, '../app/views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-// default index route
-app.use('/api', apiRouter);
-
 // START THE SERVER
 // =============================================================================
 // DB Setup
@@ -35,6 +31,10 @@ mongoose.connect(mongoURI);
 mongoose.Promise = global.Promise;
 
 const port = process.env.PORT || 9090;
+
+// default index route
+app.use('/api', apiRouter);
+
 app.listen(port);
 
 console.log(`listening on: ${port}`);

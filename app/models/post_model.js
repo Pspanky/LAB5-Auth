@@ -5,6 +5,7 @@ const PostSchema = new Schema({
   cover_url: String,
   tags: String,
   title: String,
+  author: { type: Schema.Types.ObjectId, ref: 'User' },
 }, {
   toJSON: {
     virtuals: true,
